@@ -1,0 +1,155 @@
+@import "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+//Variables
+$Violet: hsl(257, 40%, 49%);
+$Soft-Magenta: hsl(300, 69%, 71%);
+$button-shadow: rgba(48, 48, 48, 0.75);
+
+* {
+    box-sizing: border-box;
+ }
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    background-color: $Violet;
+    margin: 0;
+    padding: 0;
+    @include breakpoint-up(medium) {
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+
+        background-image: url('../../images/bg-desktop.svg');
+        background-size: cover;
+    }
+}
+.bg-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    z-index: -1;
+    position: absolute;
+    @include breakpoint-up(medium) {
+        display: none;
+    }
+}
+
+.headingLogo {
+    padding: 1.7rem 0 0 1.7rem;
+    width: 40%;
+    height: auto;
+    @include breakpoint-up(medium) {
+        width: 20%;
+        padding: 3rem 0 0 3rem;
+    }
+}
+//container
+.container {
+    padding: 0 1.7rem;
+    display:flex;
+    flex-direction: column;
+
+    @include breakpoint-up(large) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .previewPicture {
+        margin: 0 auto;
+        padding-top: 1.7rem;
+        width: 90%;
+        height: auto;
+        @include breakpoint-up(medium) {
+            width: 100%;
+            padding: 3rem 0 0 3rem;
+        }
+        @include breakpoint-up(xlarge) {
+            width: 50%;
+        }
+    }
+
+    .body {
+        padding: 1rem;
+        color: white;
+        text-align: center;
+        @include breakpoint-up(large) {
+            text-align: left;
+            padding: 0 5rem 0 2rem;
+            max-width: 50%;
+        }
+        .heading {
+            margin-top: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            @include breakpoint-up(large) {
+                font-size: 45px;
+            }
+        }
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            @include breakpoint-up(large) {
+                font-size: 18px;
+            }
+        }
+        .btn {
+            cursor: pointer;
+            margin-top: 0.6rem;
+            border: none;
+            background: white;
+            
+            color:$Violet;
+            border-radius: 40px;
+            width: 75%;
+            height: 40px; 
+            box-sizing: inherit;
+            outline: none;
+
+            -webkit-box-shadow: 0px 6px 8px -3px $button-shadow;
+            -moz-box-shadow: 0px 6px 8px -3px $button-shadow;
+            box-shadow: 0px 6px 8px -3px $button-shadow;
+
+            transition: background-color 100ms ease-in;
+
+            &:hover {
+                background-color: $Soft-Magenta;
+            }
+            @include breakpoint-up(medium) {
+                width: 30%;
+            }
+        }
+        .icons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            cursor: pointer;
+            font-size: 2rem;
+
+            @include breakpoint-up(medium) {
+                position:absolute;
+                bottom: 1rem;
+                right: 5rem;
+                font-size: 2.5rem;
+            }
+
+            .icon {
+                margin: 0 10px 0 0;
+                transition: color 100ms ease-in;
+                &:hover {
+                    color: $Soft-Magenta;
+                }
+            }
+        }
+    }
+}
